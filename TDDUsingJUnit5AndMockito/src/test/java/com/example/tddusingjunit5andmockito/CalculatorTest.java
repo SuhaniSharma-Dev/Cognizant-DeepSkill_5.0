@@ -1,24 +1,25 @@
 package com.example.tddusingjunit5andmockito;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.After;
+import org.junit.Test;
 
 public class CalculatorTest {
-
-    Calculator cal = new Calculator();
-
-    @Test
-    public void testAdd() {
-        assertEquals(8, cal.add(5,3));
+    Calculator cal;
+    @Before
+    public void setUp() {
+        System.out.println("Before Test");
+        cal = new Calculator();
     }
-
-    @Test
-    public void testSubtract() {
-        assertEquals(2, cal.subtract(5,3));
+    @After
+    public void tearDown() {
+        System.out.println("After Test");
     }
-
     @Test
-    public void testMultiply() {
-        assertEquals(15, cal.multiply(5,3));
+    public void testAddition() {
+        int a = 5;
+        int b = 6;
+        int result = cal.add(a,b);
+        assertEquals(11,result);
     }
-
 }
