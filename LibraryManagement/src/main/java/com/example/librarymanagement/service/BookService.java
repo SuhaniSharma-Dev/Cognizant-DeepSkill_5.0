@@ -1,6 +1,17 @@
 package com.example.librarymanagement.service;
+
+import com.example.librarymanagement.repository.BookRepository;
+
 public class BookService {
+
+    private BookRepository bookRepository;
+
+    public void setBookRepository(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
     public void showBooks() {
-        System.out.println("Showing books...");
+        System.out.println("Book Service Called");
+        bookRepository.displayBooks();
     }
 }
